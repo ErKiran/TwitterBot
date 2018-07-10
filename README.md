@@ -10,3 +10,5 @@ Git clone
 npm install  
 node app.js  
 Change queries and explore twitter in your beloved terminal
+
+## Status Bot is Up and Running [Here](https://twitter.com/CoastQuote?lang=en)
