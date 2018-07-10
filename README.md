@@ -5,8 +5,8 @@ Twitter Bot that updates Quotes and Stream Live Tweets
 
 In the config folder create dev file to add for secret or edit prod to add your credentials.
 ### Log in to your twitter account 
-[Navigate here](https://apps.twitter.com/) Create New App and add credentials
-Git clone 
-npm install 
-node app.js
+[Navigate here](https://apps.twitter.com/) Create New App and add credentials  
+Git clone  
+npm install  
+node app.js  
 Change queries and explore twitter in your beloved terminal
