@@ -5,11 +5,10 @@ const requestPromise = require('request-promise');
 const API_URL = 'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
 const Hero = new Twitter(Keys);
  var params = {
-    q: '#WC2018,#BEGvFRA,#FRAvBEG,#FIFA,#WorldCup',
+    q: '#Nature',
     result_type: 'mixed recent',
     lang: 'en'    
   } 
-
 
 const getQuote = (() => {
     
@@ -95,3 +94,29 @@ console.log(error);
     console.log(err);
   }
 })
+
+ //To retweet Queries
+ Hero.get('search/tweets', params, function(err, data) {
+      // if there no errors
+        if (!err) {
+          // grab ID of tweet to retweet
+            var retweetId = data.statuses[0].id_str;
+            // Tell TWITTER to retweet
+            Hero.post('statuses/retweet/:id', {
+                id: retweetId
+            }, function(err, response) {
+                if (response) {
+                    console.log('Retweeted!!!');
+                }
+                // if there was an error while tweeting
+                if (err) {
+                    console.log('Sorry');
+                }
+            });
+        }
+        // if unable to Search a tweet
+        else {
+          console.log('Something went wrong while SEARCHING...');
+        }
+    });
+
