@@ -51,6 +51,18 @@ let printQuote = (fullQuote) => {
  
 
  Hero.stream('statuses/filter', {track: '#WC2018,#BEGvFRA,#FRAvBEG,#FIFA,#WorldCup', lang: 'en'}, function(stream) {
+ 	/*stream.on('data', function(tweet) {
+console.log(tweet.text);
+var statusObj = {status: "Hey @" +
+tweet.user.screen_name + ", Thanks for showing interest.? Who are you supporting?"} // If you want to annoy someone with irratating tweet
+Twitter.post('statuses/update', statusObj, function(error,
+tweetReply, response){
+if(error){
+console.log(error);
+}
+console.log(tweetReply.text);
+});
+});*/
 stream.on('data', function(tweet) {
 console.log(tweet.text);
 });
