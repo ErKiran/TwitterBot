@@ -25,10 +25,10 @@ const getQuote = (() => {
 
             let quoteText = response.quoteText;
             let author = response.quoteAuthor || "Unknown";
-            let fullQuote = quoteText + "- " + author
+            let fullQuote = `"${quoteText}"` + " - " +` ${author}`
             
             printQuote( fullQuote );
-            Hero.post('statuses/update', {status: fullQuote}, function(error, tweet, response){
+            Hero.post('statuses/update', {status: fullQuote+'😊😊 #Quotes'}, function(error, tweet, response){
 		if(error){
 		console.log(error);
 		}
@@ -41,6 +41,7 @@ const getQuote = (() => {
         .catch( (err) => {
             console.log("Unable to retrieve quote, try again");
         })
+
          
 })();
 let printQuote = (fullQuote) => {
@@ -49,11 +50,11 @@ let printQuote = (fullQuote) => {
 
  
 
- Hero.stream('statuses/filter', {track: '#WC2018,#BEGvFRA,#FRAvBEG,#FIFA,#WorldCup', lang: 'en'}, function(stream) {
+ Hero.stream('statuses/filter', {track: "Nepal",lang: 'np'}, function(stream) {
  	/*stream.on('data', function(tweet) {
 console.log(tweet.text);
 var statusObj = {status: "Hey @" +
-tweet.user.screen_name + ", Thanks for showing interest.? Who are you supporting?"} // If you want to annoy someone with irratating tweet
+tweet.user.screen_name + ", Which player should RealMadrid must bring to fill the void left by CR7"} // If you want to annoy someone with irratating tweet
 Twitter.post('statuses/update', statusObj, function(error,
 tweetReply, response){
 if(error){
@@ -95,8 +96,9 @@ console.log(error);
   }
 })
 
+
  //To retweet Queries
- Hero.get('search/tweets', params, function(err, data) {
+/* Hero.get('search/tweets', params, function(err, data) {
       // if there no errors
         if (!err) {
           // grab ID of tweet to retweet
@@ -118,5 +120,50 @@ console.log(error);
         else {
           console.log('Something went wrong while SEARCHING...');
         }
-    });
+    });*/
+
+  const AutoDM = () => {
+  const stream = Hero.stream("user");
+  console.log("Start Sending Auto Direct Message 🚀🚀🚀");
+  stream.on("follow", SendMessage);
+};
+
+const SendMessage = user => {
+  const { screen_name, name } = user.source;
+
+  const obj = {
+    screen_name,
+    text: GenerateMessage(name)
+  };
+  // the follow stream track if I follow author person too.
+  if (screen_name != my_user_name) {
+    console.log(" 🎉🎉🎉🎉 New Follower  🎉🎉🎉🎉🎉 ");
+    setTimeout(() => {
+      Hero.post("direct_messages/new", obj)
+        .catch(err => {
+          console.error("error", err.stack);
+        })
+        .then(result => {
+          console.log(`Message sent successfully To  ${screen_name}  💪💪`);
+        });
+    }, timeout);
+  }
+};
+const GenerateMessage = name => {
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+  const d = new Date();
+  const dayName = days[d.getDay()];
+  return `Hi ${name} Thanks for following  \n Happy ${dayName} 😊😊 `; // your message
+  // My message   return `Hi ${name} Thanks for being a part of my social media network. I'am the @PicsrushE founder,A new Online Image Editor completely with web technologies,I'm also a reactjs developer and medium blogger.\n Happy to discuss anytime 😊  \n Happy ${dayName} 😊😊 `;
+};
+
+module.exports = AutoDM;
 
