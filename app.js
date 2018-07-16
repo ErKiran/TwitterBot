@@ -29,11 +29,11 @@ const getQuote = (() => {
             
             printQuote( fullQuote );
             Hero.post('statuses/update', {status: fullQuote+'😊😊 #Quotes'}, function(error, tweet, response){
-		if(error){
-		console.log(error);
-		}
-		console.log(tweet); // Tweet body.
-		console.log(response); // Raw response object.
+    if(error){
+    console.log(error);
+    }
+    console.log(tweet); // Tweet body.
+    console.log(response); // Raw response object.
 });
         })
 
@@ -50,8 +50,8 @@ let printQuote = (fullQuote) => {
 
  
 
- Hero.stream('statuses/filter', {track: "Nepal",lang: 'np'}, function(stream) {
- 	/*stream.on('data', function(tweet) {
+ Hero.stream('statuses/filter', {track: "Golden Ball",lang: 'en'}, function(stream) {
+  /*stream.on('data', function(tweet) {
 console.log(tweet.text);
 var statusObj = {status: "Hey @" +
 tweet.user.screen_name + ", Which player should RealMadrid must bring to fill the void left by CR7"} // If you want to annoy someone with irratating tweet
@@ -166,4 +166,3 @@ const GenerateMessage = name => {
 };
 
 module.exports = AutoDM;
-
