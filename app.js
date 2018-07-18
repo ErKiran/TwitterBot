@@ -3,6 +3,7 @@ const Keys= require('./config/key');
 const request = require('request');
 const requestPromise = require('request-promise');
 const API_URL = 'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
+const PIC_URL ='https://pixabay.com/api/?key=';
 const Hero = new Twitter(Keys);
  var params = {
     q: '#Nature',
@@ -164,5 +165,3 @@ const GenerateMessage = name => {
   return `Hi ${name} Thanks for following  \n Happy ${dayName} 😊😊 `; // your message
   // My message   return `Hi ${name} Thanks for being a part of my social media network. I'am the @PicsrushE founder,A new Online Image Editor completely with web technologies,I'm also a reactjs developer and medium blogger.\n Happy to discuss anytime 😊  \n Happy ${dayName} 😊😊 `;
 };
-
-module.exports = AutoDM;

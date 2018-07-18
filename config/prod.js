@@ -5,5 +5,6 @@ module.exports={
  	access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
  	application_id: process.env.APPLICATION_ID,
  	secret: process.env.SECRET,
- 	callback_url: process.env.CALLBACK_URL
+ 	callback_url: process.env.CALLBACK_URL,
+ 	apiKey: process.env.API_KEY
 };	
