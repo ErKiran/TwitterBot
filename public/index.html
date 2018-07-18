@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Twitter Bot</title>
+</head>
+<body>
+	<!--
+  Written by Amit Agarwal amit@labnol.org
+  Paste this anywhere between the body tag
+-->
+
+<style>
+
+  #tweet {
+    width: 400px !important;
+  }
+
+  #tweet iframe {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+</style>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;Never tell me the sky’s the limit when there are footprints on the moon.&quot; -  Unknown😊😊 <a href="https://twitter.com/hashtag/Quotes?src=hash&amp;ref_src=twsrc%5Etfw">#Quotes</a></p>&mdash; Quote Coast (@CoastQuote) <a href="https://twitter.com/CoastQuote/status/1019658790835314689?ref_src=twsrc%5Etfw">July 18, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;We are what we repeatedly do. Excellence, then, is not an act but a habit. &quot; -  Aristotle😊😊 <a href="https://twitter.com/hashtag/Quotes?src=hash&amp;ref_src=twsrc%5Etfw">#Quotes</a></p>&mdash; Quote Coast (@CoastQuote) <a href="https://twitter.com/CoastQuote/status/1019658193520287745?ref_src=twsrc%5Etfw">July 18, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;We must overcome the notion that we must be regular. It robs you of the chance to be extraordinary and leads you to the mediocre.&quot; -  Uta Hagen😊😊 <a href="https://twitter.com/hashtag/Quotes?src=hash&amp;ref_src=twsrc%5Etfw">#Quotes</a></p>&mdash; Quote Coast (@CoastQuote) <a href="https://twitter.com/CoastQuote/status/1019657460867584000?ref_src=twsrc%5Etfw">July 18, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<script>
+
+  window.onload = (function(){
+
+    var tweet = document.getElementById("tweet");
+    var id = tweet.getAttribute("tweetID");
+
+    twttr.widgets.createTweet(
+      id, tweet, 
+      {
+        conversation : 'none',    // or all
+        cards        : 'hidden',  // or visible 
+        linkColor    : '#cc0000', // default is blue
+        theme        : 'light'    // or dark
+      })
+    .then (function (el) {
+      el.contentDocument.querySelector(".footer").style.display = "none";
+    });
+
+  });
+
+</script>
+
+
+	
+</body>
+</html>
