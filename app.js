@@ -25,11 +25,11 @@ const getQuote = (() => {
                 getQuote();
 
             let quoteText = response.quoteText;
-            let author = response.quoteAuthor || "Unknown";
+            let author = response.quoteAuthor || "Kiran Adhikari";
             let fullQuote = `"${quoteText}"` + " - " +` ${author}`
             
             printQuote( fullQuote );
-            Hero.post('statuses/update', {status: fullQuote+'😊😊 #Quotes'}, function(error, tweet, response){
+            Hero.post('statuses/update', {status: fullQuote+'😊😊#Quotes'}, function(error, tweet, response){
     if(error){
     console.log(error);
     }
