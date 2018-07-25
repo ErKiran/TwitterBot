@@ -6,7 +6,7 @@ const API_URL = 'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&for
 const PIC_URL ='https://pixabay.com/api/?key=';
 const Hero = new Twitter(Keys);
  var params = {
-    q: '#Nature',
+    q: 'Nature,Natural Beauty,Mountains,Waterfalls',
     result_type: 'mixed recent',
     lang: 'en'    
   } 
@@ -25,7 +25,7 @@ const getQuote = (() => {
                 getQuote();
 
             let quoteText = response.quoteText;
-            let author = response.quoteAuthor || "Kiran Adhikari";
+            let author = response.quoteAuthor || "Unknown";
             let fullQuote = `"${quoteText}"` + " - " +` ${author}`
             
             printQuote( fullQuote );
@@ -51,7 +51,7 @@ let printQuote = (fullQuote) => {
 
  
 
- Hero.stream('statuses/filter', {track: "Nepal,Nepali,Kathmandu,Pokhara,Kavre,Adhikari",lang: 'en'}, function(stream) {
+ Hero.stream('statuses/filter', {track: "Nepal",lang: 'en'}, function(stream) {
   /*stream.on('data', function(tweet) {
 console.log(tweet.text);
 var statusObj = {status: "Hey @" +
