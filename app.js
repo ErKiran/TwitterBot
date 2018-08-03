@@ -51,7 +51,7 @@ let printQuote = (fullQuote) => {
 
  
 
- Hero.stream('statuses/filter', {track: "Nepal",lang: 'en'}, function(stream) {
+ Hero.stream('statuses/filter', {track: "Anil Saha",lang: 'en'}, function(stream) {
   /*stream.on('data', function(tweet) {
 console.log(tweet.text);
 var statusObj = {status: "Hey @" +
