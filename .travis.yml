@@ -1,7 +1,13 @@
-sudo: false
-node_js:
-- "10"
 language: node_js
-before_install: "npm i -g npm@latest"
-install: "npm ci"
-after_success: "npm run coveralls && npm run codecov"
+node_js:
+- "8"
+dist: trusty
+env: 
+  - NODE_ENV=ci
+cache:
+  directories:
+    - node_modules
+install:
+  - npm install
+script:
+  - nohup npm start &
