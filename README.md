@@ -1,4 +1,4 @@
-# TwitterBot
+# TwitterBot [https://travis-ci.org/ErKiran/TwitterBot.svg?branch=master]
 Twitter Bot that updates Quotes and Stream Live Tweets 
 ## This twitter bot is powered by npm package [twitter](https://www.npmjs.com/package/twitter)
 ### Quotes are powered by  [Formastic Api](https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json)
