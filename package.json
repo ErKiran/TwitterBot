@@ -22,7 +22,7 @@
     "twilio": "^3.17.5",
     "twitter": "^1.7.1",
     "underscore": "^1.9.1",
-    "unsplash-js": "^4.8.0",
+    "unsplash-js": "^5.0.0",
     "snyk": "^1.161.1"
   },
   "snyk": true
