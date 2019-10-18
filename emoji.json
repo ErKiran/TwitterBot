@@ -1,0 +1,33 @@
+{
+    "joy": {
+        "extreme": "😂",
+        "medium": "😊",
+        "slightly": "😄",
+        "neutral": "🙂"
+    },
+    "fear": {
+        "extreme": "😱",
+        "medium": "😨",
+        "slightly": "😦",
+        "neutral": "🥺"
+    },
+    "sadness": {
+        "extreme": "😭",
+        "medium": "😞",
+        "slightly": "😔",
+        "neutral": "😕"
+    },
+    "disgust": {
+        "extreme": "🤮",
+        "medium": "🤢",
+        "slightly": "🤕",
+        "neutral": "😒"
+    },
+    "anger": {
+        "extreme": "👺",
+        "medium": "👿",
+        "slightly": "😡",
+        "neutral": "😡"
+    },
+    "neutral": "😐"
+}
