@@ -37,29 +37,29 @@ const getQuote = (async () => {
       console.log("Emotions", emotions)
       const tags = sethashtags(keywords)
 
-      const image = await axios.get('https://api.unsplash.com/search/photos', {
-        params: {
-          query: 'nepal',
-          client_id: Keys.unsplash_access_key
-        },
-        headers: {
-          Authorization: Keys.unsplash_access_key
-        }
-      })
-
-      const pexel = await axios.get('https://api.pexels.com/v1/search', {
-        params: {
-          query: 'Step'
-        },
-        headers: {
-          Authorization: Keys.pexels
-        }
-      })
-      //console.log("Pexel", pexel.data)
-      const term = 'step'
-
-      const pixabay = await axios.get(`https://pixabay.com/api/?key=13993130-87b50e7e5630b92415efa4923&q=${term}&image_type=photo`, {
-      })
+      /* const image = await axios.get('https://api.unsplash.com/search/photos', {
+         params: {
+           query: 'nepal',
+           client_id: Keys.unsplash_access_key
+         },
+         headers: {
+           Authorization: Keys.unsplash_access_key
+         }
+       })
+ 
+       const pexel = await axios.get('https://api.pexels.com/v1/search', {
+         params: {
+           query: 'Step'
+         },
+         headers: {
+           Authorization: Keys.pexels
+         }
+       })
+       //console.log("Pexel", pexel.data)
+       const term = 'step'
+ 
+       const pixabay = await axios.get(`https://pixabay.com/api/?key=13993130-87b50e7e5630b92415efa4923&q=${term}&image_type=photo`, {
+       })*/
 
 
       const predicted_emoji = setemoji(sentiment, emotions)
