@@ -1,7 +1,9 @@
 const Twitter = require('twitter');
 const axios = require('axios');
 const Keys = require('./config/key');
+const emoji = require('./emoji.json');
 const { setemoji } = require('./helpers/setemoji')
+const { sethashtags } = require('./helpers/sethashtags')
 const API_URL = 'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
 const Hero = new Twitter(Keys);
 
@@ -32,27 +34,66 @@ const getQuote = (async () => {
       const concepts = AIData.data.results.concepts;
       const entities = AIData.data.results.entities;
       const sentiment = AIData.data.results.sentiment;
-      //console.log("Emotions", emotions)
-      //console.log("Keywords", keywords)
-      //console.log("Categories", categories)
-      //console.log("Concepts", concepts)
-      //console.log("Entities", entities)
-      //console.log("Sentiment", sentiment)
-      const test = setemoji(sentiment, emotions)
-      console.log(test)
+      console.log("Emotions", emotions)
+      const tags = sethashtags(keywords)
 
-
-      /*Hero.post('statuses/update', { status: fullQuote + '😊😊#Quotes' }, function (error) {
-        if (error) {
-          console.log(error);
+      const image = await axios.get('https://api.unsplash.com/search/photos', {
+        params: {
+          query: 'nepal',
+          client_id: Keys.unsplash_access_key
+        },
+        headers: {
+          Authorization: Keys.unsplash_access_key
         }
-      });*/
+      })
+
+      const pexel = await axios.get('https://api.pexels.com/v1/search', {
+        params: {
+          query: 'Step'
+        },
+        headers: {
+          Authorization: Keys.pexels
+        }
+      })
+      //console.log("Pexel", pexel.data)
+      const term = 'step'
+
+      const pixabay = await axios.get(`https://pixabay.com/api/?key=13993130-87b50e7e5630b92415efa4923&q=${term}&image_type=photo`, {
+      })
+
+
+      const predicted_emoji = setemoji(sentiment, emotions)
+      const emotweet = `${emoji[predicted_emoji.split('.')[0]][predicted_emoji.split('.')[1]]}`
+
+
+      if (tags.length !== 0) {
+
+        let status = {
+          status: `${fullQuote} #Quotes ${tags.map(i => i)} ${emotweet} ${emotweet}`
+        }
+        Hero.post('statuses/update', status, function (error) {
+          if (error) {
+            console.log(error);
+          }
+        });
+      }
+      else {
+        let status = {
+          status: `${fullQuote} #Quotes  ${emotweet} ${emotweet}`
+        }
+        Hero.post('statuses/update', status, function (error) {
+          if (error) {
+            console.log(error);
+          }
+        });
+      }
     }
   }
   catch (e) {
     throw e
   }
 })()
+
 
 
 

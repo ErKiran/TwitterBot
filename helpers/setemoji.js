@@ -1,21 +1,13 @@
 const emoji = require('../emoji.json');
+const sutiable_emoji = {}
 function setemoji(sentiment, emotions) {
     if (getHighestScore(emotions)) {
         setRelevantEmoji(getHighestScore(emotions), emotions)
-        if (sentiment.document.label === 'neutral') {
-            const getemoji = emoji.neutral;
-            //console.log(getemoji)
-            return getemoji
-        }
-        else if (sentiment.document.label === 'positive') {
-            const score = sentiment.document.score;
-            const joy = emotions.joy;
-            //console.log(score, joy)
-        }
-    } else {
-        const getemoji = emoji.neutral;
+        const getemoji = sutiable_emoji.emo;
         return getemoji
     }
+    const getemoji = 'neutral.neutral';
+    return getemoji
 }
 
 function getHighestScore(emotions) {
@@ -30,24 +22,16 @@ function getHighestScore(emotions) {
 
 function setRelevantEmoji(emotion, emotions) {
     const score = emotions[emotion];
-    console.log(score, emotion)
-    let settedemoji;
     if (score > 0.9) {
-        settedemoji = emoji.emotion.extreme
-        return settedemoji
+        sutiable_emoji.emo = `${emotion}.extreme`
     }
     else if (score > 0.8) {
-        settedemoji = emoji.emotion.medium
-        return settedemoji
+        sutiable_emoji.emo = `${emotion}.medium`
     }
     else if (score > 0.7) {
-        settedemoji = emoji.emotion.slightly
-        return settedemoji
+        sutiable_emoji.emo = `${emotion}.slightly`
     }
-    settedemoji = emoji.emotion.neutral;
-    return settedemoji
-
-
+    sutiable_emoji.emo = `${emotion}.neutral`
 }
 
 

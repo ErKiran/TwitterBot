@@ -29,5 +29,7 @@
         "slightly": "😡",
         "neutral": "😡"
     },
-    "neutral": "😐"
+    "neutral": {
+        "neutral": "😐"
+    }
 }
