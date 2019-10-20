@@ -94,6 +94,8 @@ const getQuote = async () => {
   }
 }
 
+getQuote()
+
 setInterval(getQuote, 60*60*1000);
 
 
