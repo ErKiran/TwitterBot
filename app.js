@@ -9,7 +9,7 @@ const Hero = new Twitter(Keys);
 
 
 
-const getQuote = (async () => {
+const getQuote = async () => {
   try {
     const response = await axios.get(API_URL);
     let quoteText = response.data.quoteText;
@@ -92,7 +92,9 @@ const getQuote = (async () => {
   catch (e) {
     throw e
   }
-})()
+})
+
+setInterval(getQuote, 60*60*1000);
 
 
 
