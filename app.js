@@ -92,7 +92,7 @@ const getQuote = async () => {
   catch (e) {
     throw e
   }
-})
+}
 
 setInterval(getQuote, 60*60*1000);
 
