@@ -9,7 +9,7 @@ const Hero = new Twitter(Keys);
 
 
 
-const getQuote = * async () => {
+const getQuote = async () => {
   try {
     const response = await axios.get(API_URL);
     let quoteText = response.data.quoteText;
