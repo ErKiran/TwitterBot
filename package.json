@@ -12,10 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.2",
     "express": "^4.16.3",
     "twitter": "^1.7.1",
-    "unsplash-js": "^5.0.0",
+    "unsplash-js": "^7.0.0",
     "snyk": "^1.290.1"
   },
   "snyk": true
