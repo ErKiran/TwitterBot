@@ -16,7 +16,7 @@
     "express": "^4.16.3",
     "twitter": "^1.7.1",
     "unsplash-js": "^7.0.0",
-    "snyk": "^1.290.1"
+    "snyk": "^1.518.0"
   },
   "snyk": true
 }
