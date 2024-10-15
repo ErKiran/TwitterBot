@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.2",
-    "express": "^4.17.3",
+    "express": "^4.21.1",
     "twitter": "^1.7.1",
     "unsplash-js": "^7.0.0",
     "snyk": "^1.1140.0"
